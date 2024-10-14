@@ -1,6 +1,7 @@
 package com.uptc.servicioMilitar.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "COMPANIA")
@@ -18,7 +19,8 @@ public class Compania {
     @JoinColumn(name = "ID_CUARTEL")
     private Cuartel cuartel;
 
-
+    @OneToMany(mappedBy = "compania")
+    private List<Soldado> soldados;
 
     public void setId(long id) {
         this.id = id;
