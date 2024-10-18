@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.cuerposervicegrpc.grpc";
+
+service cuerpoService{
+  rpc getOneByID(idCuerpo) returns (CuerpoObject){}
+  rpc getAll(EmptyCuerpo) returns (CuerpoList){}
+}
+message idCuerpo{
+  int64 id = 1;
+}
+
+message CuerpoObject{
+  int64 id = 1;
+  string denominacion = 2;
+  int32 status = 3;
+}
+
+message EmptyCuerpo{
+
+}
+
+message CuerpoList{
+  repeated CuerpoObject cuerpo = 1;
+}

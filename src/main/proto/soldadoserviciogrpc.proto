@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option java_multiple_files = true;
+option java_package = "com.soldadoservicioservicegrpc.grpc";
+
+service soldadoServService{
+  rpc getOneByID(idSoldadoServ) returns (SoldadoServObject){}
+  rpc getAll(EmptySoldadoServ) returns (SoldadoServList){}
+}
+message idSoldadoServ{
+  int64 id = 1;
+}
+
+message SoldadoServObject{
+  int64 id = 1;
+  int64 soldado = 2;
+  int64 servicio = 3;
+  google.protobuf.Timestamp fecha = 4;
+  int32 status = 5;
+}
+
+message EmptySoldadoServ{
+
+}
+
+message SoldadoServList{
+  repeated SoldadoServObject soldadoserv = 1;
+}

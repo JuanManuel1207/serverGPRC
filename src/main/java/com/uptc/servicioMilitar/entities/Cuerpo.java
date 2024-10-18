@@ -1,7 +1,10 @@
 package com.uptc.servicioMilitar.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "CUERPO")
@@ -21,4 +24,3 @@ public class Cuerpo {
     private List<Soldado> soldados;
     */
 }
-

@@ -5,8 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
-
 
 @Entity
 @Table(name = "COMPANIA")
@@ -16,16 +14,16 @@ import java.util.List;
 public class Compania {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private int numeroCompania;
+    private Long id;
+    private Integer numeroCompania;
     private String actividad;
-
-    @ManyToOne
-    @JoinColumn(name = "cuartelId",nullable = false)
+    private Integer status;
+    /*
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_CUARTEL")
     private Cuartel cuartel;
 
-    /*
     @OneToMany(mappedBy = "compania")
     private List<Soldado> soldados;
-    */
+*/
 }

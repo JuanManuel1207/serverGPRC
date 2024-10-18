@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.servicegrpc.grpc";
+
+service serviceService{
+  rpc getOneByID(idServicio) returns (ServicioObject){}
+  rpc getAll(EmptyServicio) returns (ServicioList){}
+}
+message idServicio{
+  int64 id = 1;
+}
+
+message ServicioObject{
+  int64 id = 1;
+  string descripcion = 2;
+  int32 status = 3;
+}
+
+message EmptyServicio{
+
+}
+
+message ServicioList{
+  repeated ServicioObject servicio = 1;
+}

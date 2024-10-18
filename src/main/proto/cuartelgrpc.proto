@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.cuartelservicegrpc.grpc";
+
+service cuartelService{
+  rpc getOneByID(id) returns (CuartelObject){}
+  //rpc getOneByID(id) returns (CuartelWithCompaniasResponse) {}
+  rpc getAll(Empty) returns (CuartelList){}
+}
+message id{
+  int64 id = 1;
+}
+
+message CuartelObject{
+  int64 id = 1;
+  string nombre = 2;
+  string ubicacion = 3;
+  int32 status = 4;
+}
+
+message Empty{
+
+}
+
+message CuartelList{
+  repeated CuartelObject cuartel = 1;
+}

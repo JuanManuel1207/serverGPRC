@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "CUARTEL")
@@ -19,7 +18,8 @@ public class Cuartel {
     private String nombre;
     private String ubicacion;
     private Integer status;
-
+/*
     @OneToMany(mappedBy = "cuartel", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Compania> companias;
+*/
 }

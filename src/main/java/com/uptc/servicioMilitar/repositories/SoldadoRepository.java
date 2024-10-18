@@ -1,4 +1,11 @@
 package com.uptc.servicioMilitar.repositories;
 
-public interface SoldadoRepository {
+import com.uptc.servicioMilitar.entities.Soldado;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface SoldadoRepository extends JpaRepository<Soldado,Long> {
+
+
 }
