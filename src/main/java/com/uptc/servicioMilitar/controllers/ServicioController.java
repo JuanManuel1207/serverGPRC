@@ -15,8 +15,8 @@ public class ServicioController {
     private ServicioService servicioService;
 
     @PostMapping("")
-    public CompletableFuture<ResponseEntity> postRecord(@RequestBody Servicio school){
-        return servicioService.save(school).thenApply(ResponseEntity::ok);
+    public CompletableFuture<ResponseEntity> postRecord(@RequestBody Servicio servicio){
+        return servicioService.save(servicio).thenApply(ResponseEntity::ok);
     }
 
     @GetMapping("")
@@ -25,8 +25,8 @@ public class ServicioController {
     }
 
     @PutMapping("/{id}")
-    public CompletableFuture<ResponseEntity> update(@RequestBody Servicio school, @PathVariable Long id){
-        return servicioService.update(school,id).thenApply(ResponseEntity::ok);
+    public CompletableFuture<ResponseEntity> update(@RequestBody Servicio servicio, @PathVariable Long id){
+        return servicioService.update(servicio,id).thenApply(ResponseEntity::ok);
     }
 
     @DeleteMapping("/{id}")

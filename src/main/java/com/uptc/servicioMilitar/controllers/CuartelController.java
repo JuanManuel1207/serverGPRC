@@ -15,8 +15,8 @@ public class CuartelController {
     private CuartelService schoolsService;
 
     @PostMapping("")
-    public CompletableFuture<ResponseEntity> postRecord(@RequestBody Cuartel school){
-        return schoolsService.save(school).thenApply(ResponseEntity::ok);
+    public CompletableFuture<ResponseEntity> postRecord(@RequestBody Cuartel cuartel){
+        return schoolsService.save(cuartel).thenApply(ResponseEntity::ok);
     }
 
     @GetMapping("")
@@ -25,8 +25,8 @@ public class CuartelController {
     }
 
     @PutMapping("/{id}")
-    public CompletableFuture<ResponseEntity> update(@RequestBody Cuartel school, @PathVariable Long id){
-        return schoolsService.update(school,id).thenApply(ResponseEntity::ok);
+    public CompletableFuture<ResponseEntity> update(@RequestBody Cuartel cuartel, @PathVariable Long id){
+        return schoolsService.update(cuartel,id).thenApply(ResponseEntity::ok);
     }
 
     @DeleteMapping("/{id}")

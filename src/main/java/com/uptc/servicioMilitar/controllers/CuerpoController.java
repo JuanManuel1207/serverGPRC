@@ -12,25 +12,25 @@ import java.util.concurrent.CompletableFuture;
 @RequestMapping("servicioMilitar/v1/cuerpo")
 public class CuerpoController {
     @Autowired
-    private CuerpoService schoolsService;
+    private CuerpoService cuerpoService;
 
     @PostMapping("")
-    public CompletableFuture<ResponseEntity> postRecord(@RequestBody Cuerpo school){
-        return schoolsService.save(school).thenApply(ResponseEntity::ok);
+    public CompletableFuture<ResponseEntity> postRecord(@RequestBody Cuerpo cuerpo){
+        return cuerpoService.save(cuerpo).thenApply(ResponseEntity::ok);
     }
 
     @GetMapping("")
     public CompletableFuture<ResponseEntity> getAll(){
-        return schoolsService.getAll().thenApply(ResponseEntity::ok);
+        return cuerpoService.getAll().thenApply(ResponseEntity::ok);
     }
 
     @PutMapping("/{id}")
-    public CompletableFuture<ResponseEntity> update(@RequestBody Cuerpo school, @PathVariable Long id){
-        return schoolsService.update(school,id).thenApply(ResponseEntity::ok);
+    public CompletableFuture<ResponseEntity> update(@RequestBody Cuerpo cuerpo, @PathVariable Long id){
+        return cuerpoService.update(cuerpo,id).thenApply(ResponseEntity::ok);
     }
 
     @DeleteMapping("/{id}")
     public CompletableFuture<ResponseEntity> delete(@PathVariable Long id){
-        return schoolsService.delete(id).thenApply(ResponseEntity::ok);
+        return cuerpoService.delete(id).thenApply(ResponseEntity::ok);
     }
 }
