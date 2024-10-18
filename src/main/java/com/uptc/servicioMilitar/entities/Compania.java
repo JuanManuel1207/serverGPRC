@@ -1,64 +1,31 @@
 package com.uptc.servicioMilitar.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.List;
 
+
 @Entity
 @Table(name = "COMPANIA")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Compania {
-
     @Id
-    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "NUMEROCOMPANIA")
     private int numeroCompania;
-    @Column(name = "ACTIVIDAD")
     private String actividad;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_CUARTEL")
+    @ManyToOne
+    @JoinColumn(name = "cuartelId",nullable = false)
     private Cuartel cuartel;
 
+    /*
     @OneToMany(mappedBy = "compania")
     private List<Soldado> soldados;
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public int getNumeroCompania() {
-        return numeroCompania;
-    }
-
-    public void setNumeroCompania(int numeroCompania) {
-        this.numeroCompania = numeroCompania;
-    }
-
-    public String getActividad() {
-        return actividad;
-    }
-
-    public void setActividad(String actividad) {
-        this.actividad = actividad;
-    }
-
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-
-
-    @Override
-    public String toString() {
-        return "Compania{" +
-                "id=" + id +
-                ", numeroCompania=" + numeroCompania +
-                ", actividad='" + actividad + '\'' +
-                '}';
-    }
+    */
 }
